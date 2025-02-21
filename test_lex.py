@@ -9,7 +9,7 @@ def test_unclosed_comment1(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_unclosed_comment2(monkeypatch, capsys):
     run_test("""
@@ -18,7 +18,7 @@ def test_unclosed_comment2(monkeypatch, capsys):
             run [| |]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
 
 def test_num_literal1(monkeypatch, capsys):
     run_test("""
@@ -28,7 +28,7 @@ def test_num_literal1(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_num_literal2(monkeypatch, capsys):
     run_test("""
@@ -38,7 +38,7 @@ def test_num_literal2(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_num_literal3(monkeypatch, capsys):
     run_test("""
@@ -48,7 +48,7 @@ def test_num_literal3(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_num_literal4(monkeypatch, capsys):
     run_test("""
@@ -58,7 +58,7 @@ def test_num_literal4(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_num_literal5(monkeypatch, capsys):
     run_test("""
@@ -68,7 +68,7 @@ def test_num_literal5(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_str_literal1(monkeypatch, capsys):
     run_test("""
@@ -78,7 +78,7 @@ def test_str_literal1(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_str_literal2(monkeypatch, capsys):
     run_test("""
@@ -88,7 +88,7 @@ def test_str_literal2(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_str_literal3(monkeypatch, capsys):
     run_test("""
@@ -98,7 +98,7 @@ def test_str_literal3(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
 
 def test_str_literal4(monkeypatch, capsys):
     run_test("""
@@ -108,7 +108,7 @@ def test_str_literal4(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_str_literal5(monkeypatch, capsys):
     run_test("""
@@ -118,7 +118,7 @@ def test_str_literal5(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
 
 def test_selector1(monkeypatch, capsys):
     run_test("""
@@ -128,7 +128,7 @@ def test_selector1(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
 
 def test_selector2(monkeypatch, capsys):
     run_test("""
@@ -138,7 +138,7 @@ def test_selector2(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
     
 def test_id1(monkeypatch, capsys):
     run_test("""
@@ -148,7 +148,7 @@ def test_id1(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
 
 def test_id2(monkeypatch, capsys):
     run_test("""
@@ -158,5 +158,5 @@ def test_id2(monkeypatch, capsys):
             ]
         }
         """,
-        21, monkeypatch, capsys)
+        21)
 

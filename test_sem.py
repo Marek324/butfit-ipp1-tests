@@ -8,7 +8,7 @@ def test_no_main1(monkeypatch, capsys):
             ]
         }
         """,
-        31, monkeypatch, capsys)
+        31)
     
 def test_no_main2(monkeypatch, capsys):
     run_test("""
@@ -19,7 +19,7 @@ def test_no_main2(monkeypatch, capsys):
             ]
         }
         """,
-        31, monkeypatch, capsys)
+        31)
     
 def test_no_run1(monkeypatch, capsys):
     run_test("""
@@ -29,7 +29,7 @@ def test_no_run1(monkeypatch, capsys):
             ]
         }
         """,
-        31, monkeypatch, capsys)
+        31)
     
 def test_no_run2(monkeypatch, capsys):
     run_test("""
@@ -42,7 +42,7 @@ def test_no_run2(monkeypatch, capsys):
             ]
         }
         """,
-        31, monkeypatch, capsys)
+        31)
 def test_undefined_class1(monkeypatch, capsys):
     run_test("""
         class Main : Object {
@@ -51,7 +51,7 @@ def test_undefined_class1(monkeypatch, capsys):
             ]
         }
         """,
-        32, monkeypatch, capsys)
+        32)
     
 def test_undefined_class2(monkeypatch, capsys):
     run_test("""
@@ -61,7 +61,7 @@ def test_undefined_class2(monkeypatch, capsys):
             ]
         }
         """,
-        32, monkeypatch, capsys)
+        32)
     
 def test_undefined_var1(monkeypatch, capsys):
     run_test("""
@@ -71,7 +71,7 @@ def test_undefined_var1(monkeypatch, capsys):
             ]
         }
         """,
-        32, monkeypatch, capsys)
+        32)
     
 def test_undefined_var2(monkeypatch, capsys):
     run_test("""
@@ -82,7 +82,7 @@ def test_undefined_var2(monkeypatch, capsys):
             ]
         }
         """,
-        32, monkeypatch, capsys)
+        32)
     
 def test_undefined_var3(monkeypatch, capsys):
     run_test("""
@@ -94,7 +94,7 @@ def test_undefined_var3(monkeypatch, capsys):
             ]
         }
         """,
-        32, monkeypatch, capsys)
+        32)
     
 def test_run_param(monkeypatch, capsys):
     run_test("""
@@ -104,7 +104,7 @@ def test_run_param(monkeypatch, capsys):
             ]
         }
         """,
-        33, monkeypatch, capsys)
+        33)
     
 def test_arity1(monkeypatch, capsys):
     run_test("""
@@ -115,7 +115,7 @@ def test_arity1(monkeypatch, capsys):
             ]
         }
         """,
-        33, monkeypatch, capsys)
+        33)
     
 def test_arity2(monkeypatch, capsys):
     run_test("""
@@ -126,7 +126,7 @@ def test_arity2(monkeypatch, capsys):
             abc2: [|]
         }
         """,
-        33, monkeypatch, capsys)
+        33)
     
 def test_arity3(monkeypatch, capsys):
     run_test("""
@@ -137,7 +137,7 @@ def test_arity3(monkeypatch, capsys):
             p3: [:a :b|]
         }
         """,
-        33, monkeypatch, capsys)
+        33)
     
 def test_arity4(monkeypatch, capsys):
     run_test("""
@@ -148,7 +148,7 @@ def test_arity4(monkeypatch, capsys):
             p4:aa4a: [:a :b :c|]
         }
         """,
-        33, monkeypatch, capsys)
+        33)
     
 def test_collision_var1(monkeypatch, capsys):
     run_test("""
@@ -157,7 +157,7 @@ def test_collision_var1(monkeypatch, capsys):
             a1: [:x | x := 1.]
         }
         """,
-        34, monkeypatch, capsys)
+        34)
 
 def test_collision_var2(monkeypatch, capsys):
     run_test("""
@@ -166,5 +166,5 @@ def test_collision_var2(monkeypatch, capsys):
             a2:b2: [:x :x | a := 1.]
         }
         """,
-        34, monkeypatch, capsys)
+        34)
         

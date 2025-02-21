@@ -15,7 +15,7 @@ def test_minimal(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 
 def test_description1(monkeypatch, capsys):
@@ -32,7 +32,7 @@ def test_description1(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_description2(monkeypatch, capsys):
     input = """
@@ -48,7 +48,7 @@ def test_description2(monkeypatch, capsys):
         </class>
     </program>
     """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_description3(monkeypatch, capsys):
     input = """
@@ -64,7 +64,7 @@ def test_description3(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_multiple_classes(monkeypatch, capsys):
     input = """
@@ -86,7 +86,7 @@ def test_multiple_classes(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_multiple_methods(monkeypatch, capsys):
     input = """
@@ -108,7 +108,7 @@ def test_multiple_methods(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_multiple_parameters(monkeypatch, capsys):
     input = """
@@ -134,7 +134,7 @@ def test_multiple_parameters(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_multiple_assign(monkeypatch, capsys):
     input = """
@@ -168,7 +168,7 @@ def test_multiple_assign(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_inheritance(monkeypatch, capsys):
     input = """
@@ -203,7 +203,7 @@ def test_inheritance(monkeypatch, capsys):
             <class name="Str2" parent="Str"/>   
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_integer(monkeypatch, capsys):
     input = """
@@ -230,7 +230,7 @@ def test_literal_integer(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_nil(monkeypatch, capsys):
     input = """
@@ -257,7 +257,7 @@ def test_literal_nil(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_true(monkeypatch, capsys):
     input = """
@@ -284,7 +284,7 @@ def test_literal_true(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_false(monkeypatch, capsys):
     input = """
@@ -311,7 +311,7 @@ def test_literal_false(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_string(monkeypatch, capsys):
     input = """
@@ -338,7 +338,7 @@ def test_literal_string(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_string_lt(monkeypatch, capsys):
     input = """
@@ -365,7 +365,7 @@ def test_literal_string_lt(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_string_gt(monkeypatch, capsys):
     input = """
@@ -392,7 +392,7 @@ def test_literal_string_gt(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_string_amp(monkeypatch, capsys):
     input = """
@@ -419,7 +419,7 @@ def test_literal_string_amp(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_string_apos(monkeypatch, capsys):
     input = """
@@ -446,7 +446,7 @@ def test_literal_string_apos(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_string_quot(monkeypatch, capsys):
     input = """
@@ -473,7 +473,7 @@ def test_literal_string_quot(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_string_esc_nl(monkeypatch, capsys): # may be escaped newline
     input = """
@@ -500,7 +500,7 @@ def test_literal_string_esc_nl(monkeypatch, capsys): # may be escaped newline
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_string_esc_backslash(monkeypatch, capsys):
     input = """
@@ -527,7 +527,7 @@ def test_literal_string_esc_backslash(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_class_new(monkeypatch, capsys):
     input = """
@@ -558,7 +558,7 @@ def test_literal_class_new(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_literal_class_from(monkeypatch, capsys):
     input = """
@@ -594,7 +594,7 @@ def test_literal_class_from(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_assign_block(monkeypatch, capsys):
     input = """
@@ -625,7 +625,7 @@ def test_assign_block(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_assign_block_param(monkeypatch, capsys):
     input = """
@@ -658,7 +658,7 @@ def test_assign_block_param(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 def test_assign_var(monkeypatch, capsys):
     input = """
@@ -692,7 +692,7 @@ def test_assign_var(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
 
 
 def test_example(monkeypatch, capsys):
@@ -891,4 +891,4 @@ def test_example(monkeypatch, capsys):
             </class>
         </program>
         """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
+    run_valid_test(input, exp_output)
