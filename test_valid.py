@@ -167,13 +167,13 @@ def test_multiple_assign(monkeypatch, capsys):
 
 def test_inheritance(monkeypatch, capsys):
     input = """
-        Str : String {}
+        class Str : String {}
         class Main : Object {
             run [|
                 x := Str2 read.  
             ]
         }
-        Str2 : Str {}
+        class Str2 : Str {}
         """
     exp_output = """
         <?xml version="1.0" encoding="UTF-8"?>
