@@ -708,7 +708,7 @@ def test_example(monkeypatch, capsys):
             [ :x :y :z |    
                 a := x plus: y.
                 _ := self vysl: a.
-                _ := (( self vysl) greaterThan : 0)
+                _ := (( self vysl) greaterThan: 0)
                 ifTrue: [|u := self vysl: 1.]
                 ifFalse: [|].
             ]
@@ -884,14 +884,5 @@ def test_example(monkeypatch, capsys):
                 </method>
             </class>
         </program>
-        """
-    run_valid_test(input, exp_output, monkeypatch, capsys)
-
-def test_(monkeypatch, capsys):
-    input = """
-
-        """
-    exp_output = """
-
         """
     run_valid_test(input, exp_output, monkeypatch, capsys)
