@@ -1,10 +1,5 @@
-import pytest
-import sys
-import io
 import xml.etree.ElementTree as ET
 import subprocess
-
-from parse import main
 
 def run_arg_test(args, expected_code):
     args = ["python", "parse.py"] + args

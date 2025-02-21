@@ -18,6 +18,5 @@ pip install -r requirements.txt # install required packages
 git pull # in tests directory
 ```
 ## Notes:
-These tests expect your script to have `main()` function that runs all code.
 Tag or DM me if you see any issues. (@marek3k)
 If you'd like to contribute tests, create a pull request.
