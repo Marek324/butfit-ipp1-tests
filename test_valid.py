@@ -24,13 +24,13 @@ def test_description1(monkeypatch, capsys):
         """
     exp_output = """
         <?xml version="1.0" encoding="UTF-8"?>
-            <program language="SOL25" description="comment">
-                <class name="Main" parent="Object">
-                    <method selector="run">
-                        <block arity="0"/>
-                    </method>
-                </class>
-            </program>
+        <program language="SOL25" description="comment">
+            <class name="Main" parent="Object">
+                <method selector="run">
+                    <block arity="0"/>
+                </method>
+            </class>
+        </program>
         """
     run_valid_test(input, exp_output, monkeypatch, capsys)
 
@@ -40,13 +40,13 @@ def test_description2(monkeypatch, capsys):
         """
     exp_output = """
     <?xml version="1.0" encoding="UTF-8"?>
-        <program language="SOL25" description="comment&nbsp;newline">
-            <class name="Main" parent="Object">
-                <method selector="run">
-                    <block arity="0"/>
-                </method>
-            </class>
-        </program>
+    <program language="SOL25" description="comment&nbsp;newline">
+        <class name="Main" parent="Object">
+            <method selector="run">
+                <block arity="0"/>
+            </method>
+        </class>
+    </program>
     """
     run_valid_test(input, exp_output, monkeypatch, capsys)
 
@@ -56,13 +56,13 @@ def test_description3(monkeypatch, capsys):
         """
     exp_output = """
         <?xml version="1.0" encoding="UTF-8"?>
-            <program language="SOL25" description="comment">
-                <class name="Main" parent="Object">
-                    <method selector="run">
-                        <block arity="0"/>
-                    </method>
-                </class>
-            </program>
+        <program language="SOL25" description="comment">
+            <class name="Main" parent="Object">
+                <method selector="run">
+                    <block arity="0"/>
+                </method>
+            </class>
+        </program>
         """
     run_valid_test(input, exp_output, monkeypatch, capsys)
 
@@ -115,7 +115,7 @@ def test_multiple_parameters(monkeypatch, capsys):
         class Main : Object {
             run [|]
             a:b:c: [:x :y :z |]
-        ]
+        }
         """
     exp_output = """
         <?xml version="1.0" encoding="UTF-8"?>
@@ -166,6 +166,7 @@ def test_multiple_assign(monkeypatch, capsys):
                     </block>
                 </method>
             </class>
+        </program>
         """
     run_valid_test(input, exp_output, monkeypatch, capsys)
 
@@ -689,6 +690,7 @@ def test_assign_var(monkeypatch, capsys):
                     </block>
                 </method>
             </class>
+        </program>
         """
     run_valid_test(input, exp_output, monkeypatch, capsys)
 
