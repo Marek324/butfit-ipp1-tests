@@ -1,6 +1,6 @@
 from tests.utils_tests import run_test
 
-def test_unclosed_comment1(monkeypatch, capsys):
+def test_unclosed_comment1():
     run_test("""
         class Main : Object {
             run [|
@@ -11,7 +11,7 @@ def test_unclosed_comment1(monkeypatch, capsys):
         """,
         21)
     
-def test_unclosed_comment2(monkeypatch, capsys):
+def test_unclosed_comment2():
     run_test("""
         class Main : Object {
             "Toto je neuzavretý komentár
@@ -20,7 +20,7 @@ def test_unclosed_comment2(monkeypatch, capsys):
         """,
         21)
 
-def test_num_literal1(monkeypatch, capsys):
+def test_num_literal1():
     run_test("""
         class Main : Object {
             run [|
@@ -30,7 +30,7 @@ def test_num_literal1(monkeypatch, capsys):
         """,
         21)
     
-def test_num_literal2(monkeypatch, capsys):
+def test_num_literal2():
     run_test("""
         class Main : Object {
             run [|
@@ -40,7 +40,7 @@ def test_num_literal2(monkeypatch, capsys):
         """,
         21)
     
-def test_num_literal3(monkeypatch, capsys):
+def test_num_literal3():
     run_test("""
         class Main : Object {
             run [|
@@ -50,7 +50,7 @@ def test_num_literal3(monkeypatch, capsys):
         """,
         21)
     
-def test_num_literal4(monkeypatch, capsys):
+def test_num_literal4():
     run_test("""
         class Main : Object {
             run [|
@@ -60,7 +60,7 @@ def test_num_literal4(monkeypatch, capsys):
         """,
         21)
     
-def test_num_literal5(monkeypatch, capsys):
+def test_num_literal5():
     run_test("""
         class Main : Object {
             run [|
@@ -70,7 +70,7 @@ def test_num_literal5(monkeypatch, capsys):
         """,
         21)
     
-def test_str_literal1(monkeypatch, capsys):
+def test_str_literal1():
     run_test("""
         class Main : Object {
             run [|
@@ -80,7 +80,7 @@ def test_str_literal1(monkeypatch, capsys):
         """,
         21)
     
-def test_str_literal2(monkeypatch, capsys):
+def test_str_literal2():
     run_test("""
         class Main : Object {
             run [|
@@ -90,7 +90,7 @@ def test_str_literal2(monkeypatch, capsys):
         """,
         21)
     
-def test_str_literal3(monkeypatch, capsys):
+def test_str_literal3():
     run_test("""
         class Main : Object {
             run [|
@@ -100,7 +100,7 @@ def test_str_literal3(monkeypatch, capsys):
         """,
         21)
 
-def test_str_literal4(monkeypatch, capsys):
+def test_str_literal4():
     run_test("""
         class Main : Object {
             run [|
@@ -110,7 +110,7 @@ def test_str_literal4(monkeypatch, capsys):
         """,
         21)
     
-def test_str_literal5(monkeypatch, capsys):
+def test_str_literal5():
     run_test("""
         class Main : Object {
             run [|
@@ -120,7 +120,7 @@ def test_str_literal5(monkeypatch, capsys):
         """,
         21)
 
-def test_selector1(monkeypatch, capsys):
+def test_selector1():
     run_test("""
         class Main : Object {
             run [|
@@ -130,7 +130,7 @@ def test_selector1(monkeypatch, capsys):
         """,
         21)
 
-def test_selector2(monkeypatch, capsys):
+def test_selector2():
     run_test("""
         class Main : Object {
             run [|
@@ -140,7 +140,7 @@ def test_selector2(monkeypatch, capsys):
         """,
         21)
     
-def test_id1(monkeypatch, capsys):
+def test_id1():
     run_test("""
         class Main : Object {
             run [|
@@ -150,7 +150,7 @@ def test_id1(monkeypatch, capsys):
         """,
         21)
 
-def test_id2(monkeypatch, capsys):
+def test_id2():
     run_test("""
         class Main : Object {
             run [|

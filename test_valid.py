@@ -1,7 +1,7 @@
 from tests.utils_tests import run_valid_test
 
 
-def test_minimal(monkeypatch, capsys):
+def test_minimal():
     input = """
         class Main:Object{run[|]}
         """
@@ -18,7 +18,7 @@ def test_minimal(monkeypatch, capsys):
     run_valid_test(input, exp_output)
 
 
-def test_description1(monkeypatch, capsys):
+def test_description1():
     input = """
         class Main:Object{run[|]} "comment"
         """
@@ -34,7 +34,7 @@ def test_description1(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_description2(monkeypatch, capsys):
+def test_description2():
     input = """
         class Main:Object{run[|]} "comment\nnewline"
         """
@@ -50,7 +50,7 @@ def test_description2(monkeypatch, capsys):
     """
     run_valid_test(input, exp_output)
 
-def test_description3(monkeypatch, capsys):
+def test_description3():
     input = """
         class Main:Object{run[|]} "comment" "another"
         """
@@ -66,7 +66,7 @@ def test_description3(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_multiple_classes(monkeypatch, capsys):
+def test_multiple_classes():
     input = """
         class Main : Object {run [|]}
         class Main2 : Object {run [|]}
@@ -88,7 +88,7 @@ def test_multiple_classes(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_multiple_methods(monkeypatch, capsys):
+def test_multiple_methods():
     input = """
         class Main : Object {
             run [|]
@@ -110,7 +110,7 @@ def test_multiple_methods(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_multiple_parameters(monkeypatch, capsys):
+def test_multiple_parameters():
     input = """
         class Main : Object {
             run [|]
@@ -136,7 +136,7 @@ def test_multiple_parameters(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_multiple_assign(monkeypatch, capsys):
+def test_multiple_assign():
     input = """
         class Main : Object {
             run [| 
@@ -170,7 +170,7 @@ def test_multiple_assign(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_inheritance(monkeypatch, capsys):
+def test_inheritance():
     input = """
         class Str : String {}
         class Main : Object {
@@ -205,7 +205,7 @@ def test_inheritance(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_integer(monkeypatch, capsys):
+def test_literal_integer():
     input = """
         class Main : Object {
             run [| 
@@ -232,7 +232,7 @@ def test_literal_integer(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_nil(monkeypatch, capsys):
+def test_literal_nil():
     input = """
         class Main : Object {
             run [| 
@@ -259,7 +259,7 @@ def test_literal_nil(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_true(monkeypatch, capsys):
+def test_literal_true():
     input = """
         class Main : Object {
             run [| 
@@ -286,7 +286,7 @@ def test_literal_true(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_false(monkeypatch, capsys):
+def test_literal_false():
     input = """
         class Main : Object {
             run [| 
@@ -313,7 +313,7 @@ def test_literal_false(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string(monkeypatch, capsys):
+def test_literal_string():
     input = """
         class Main : Object {
             run [| 
@@ -340,7 +340,7 @@ def test_literal_string(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string_lt(monkeypatch, capsys):
+def test_literal_string_lt():
     input = """
         class Main : Object {
             run [| 
@@ -367,7 +367,7 @@ def test_literal_string_lt(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string_gt(monkeypatch, capsys):
+def test_literal_string_gt():
     input = """
         class Main : Object {
             run [| 
@@ -394,7 +394,7 @@ def test_literal_string_gt(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string_amp(monkeypatch, capsys):
+def test_literal_string_amp():
     input = """
         class Main : Object {
             run [| 
@@ -421,7 +421,7 @@ def test_literal_string_amp(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string_apos(monkeypatch, capsys):
+def test_literal_string_apos():
     input = """
         class Main : Object {
             run [| 
@@ -448,7 +448,7 @@ def test_literal_string_apos(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string_quot(monkeypatch, capsys):
+def test_literal_string_quot():
     input = """
         class Main : Object {
             run [| 
@@ -475,7 +475,7 @@ def test_literal_string_quot(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string_esc_nl(monkeypatch, capsys): # may be escaped newline
+def test_literal_string_esc_nl(): # may be escaped newline
     input = """
         class Main : Object {
             run [| 
@@ -502,7 +502,7 @@ def test_literal_string_esc_nl(monkeypatch, capsys): # may be escaped newline
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string_esc_backslash(monkeypatch, capsys):
+def test_literal_string_esc_backslash():
     input = """
         class Main : Object {
             run [| 
@@ -529,7 +529,7 @@ def test_literal_string_esc_backslash(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_class_new(monkeypatch, capsys):
+def test_literal_class_new():
     input = """
         class Main : Object {
             run [| 
@@ -560,7 +560,7 @@ def test_literal_class_new(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_literal_class_from(monkeypatch, capsys):
+def test_literal_class_from():
     input = """
         class Main : Object {
             run [| 
@@ -596,7 +596,7 @@ def test_literal_class_from(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_assign_block(monkeypatch, capsys):
+def test_assign_block():
     input = """
         class Main : Object {
             run [| 
@@ -627,7 +627,7 @@ def test_assign_block(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_assign_block_param(monkeypatch, capsys):
+def test_assign_block_param():
     input = """
         class Main : Object {
             run [| 
@@ -660,7 +660,7 @@ def test_assign_block_param(monkeypatch, capsys):
         """
     run_valid_test(input, exp_output)
 
-def test_assign_var(monkeypatch, capsys):
+def test_assign_var():
     input = """
         class Main : Object {
             run [| 
@@ -695,7 +695,7 @@ def test_assign_var(monkeypatch, capsys):
     run_valid_test(input, exp_output)
 
 
-def test_example(monkeypatch, capsys):
+def test_example():
     input = """
         class Main : Object {
             run "<- definice metody - bezparametrický selektor run"

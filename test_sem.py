@@ -1,6 +1,6 @@
 from tests.utils_tests import run_test
 
-def test_no_main1(monkeypatch, capsys):
+def test_no_main1():
     run_test("""
         class Man1 : Object {
             run [|
@@ -10,7 +10,7 @@ def test_no_main1(monkeypatch, capsys):
         """,
         31)
     
-def test_no_main2(monkeypatch, capsys):
+def test_no_main2():
     run_test("""
         class MyInt : Integer {}
         class Man2 : Object {
@@ -21,7 +21,7 @@ def test_no_main2(monkeypatch, capsys):
         """,
         31)
     
-def test_no_run1(monkeypatch, capsys):
+def test_no_run1():
     run_test("""
         class Main : Object {
             ru1 [|
@@ -31,7 +31,7 @@ def test_no_run1(monkeypatch, capsys):
         """,
         31)
     
-def test_no_run2(monkeypatch, capsys):
+def test_no_run2():
     run_test("""
         class Main : Object {
             ru2: [:b|
@@ -43,7 +43,7 @@ def test_no_run2(monkeypatch, capsys):
         }
         """,
         31)
-def test_undefined_class1(monkeypatch, capsys):
+def test_undefined_class1():
     run_test("""
         class Main : Object {
             run [|
@@ -53,7 +53,7 @@ def test_undefined_class1(monkeypatch, capsys):
         """,
         32)
     
-def test_undefined_class2(monkeypatch, capsys):
+def test_undefined_class2():
     run_test("""
         class Main : Object {
             run [|
@@ -63,7 +63,7 @@ def test_undefined_class2(monkeypatch, capsys):
         """,
         32)
     
-def test_undefined_var1(monkeypatch, capsys):
+def test_undefined_var1():
     run_test("""
         class Main : Object {
             run [|
@@ -73,7 +73,7 @@ def test_undefined_var1(monkeypatch, capsys):
         """,
         32)
     
-def test_undefined_var2(monkeypatch, capsys):
+def test_undefined_var2():
     run_test("""
         class Main : Object {
             run [|
@@ -84,7 +84,7 @@ def test_undefined_var2(monkeypatch, capsys):
         """,
         32)
     
-def test_undefined_var3(monkeypatch, capsys):
+def test_undefined_var3():
     run_test("""
         class Main : Object {
             run [|
@@ -96,7 +96,7 @@ def test_undefined_var3(monkeypatch, capsys):
         """,
         32)
     
-def test_run_param(monkeypatch, capsys):
+def test_run_param():
     run_test("""
         class Main : Object {
             run [:a|
@@ -106,7 +106,7 @@ def test_run_param(monkeypatch, capsys):
         """,
         33)
     
-def test_arity1(monkeypatch, capsys):
+def test_arity1():
     run_test("""
         class Main : Object {
             run [:a|
@@ -117,7 +117,7 @@ def test_arity1(monkeypatch, capsys):
         """,
         33)
     
-def test_arity2(monkeypatch, capsys):
+def test_arity2():
     run_test("""
         class Main : Object {
             run [|
@@ -128,7 +128,7 @@ def test_arity2(monkeypatch, capsys):
         """,
         33)
     
-def test_arity3(monkeypatch, capsys):
+def test_arity3():
     run_test("""
         class Main : Object {
             run [|
@@ -139,7 +139,7 @@ def test_arity3(monkeypatch, capsys):
         """,
         33)
     
-def test_arity4(monkeypatch, capsys):
+def test_arity4():
     run_test("""
         class Main : Object {
             run [|
@@ -150,7 +150,7 @@ def test_arity4(monkeypatch, capsys):
         """,
         33)
     
-def test_collision_var1(monkeypatch, capsys):
+def test_collision_var1():
     run_test("""
         class Main : Object {
             run [|]
@@ -159,7 +159,7 @@ def test_collision_var1(monkeypatch, capsys):
         """,
         34)
 
-def test_collision_var2(monkeypatch, capsys):
+def test_collision_var2():
     run_test("""
         class Main : Object {
             run [|]
