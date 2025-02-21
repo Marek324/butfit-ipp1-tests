@@ -113,14 +113,18 @@ def test_multiple_methods(monkeypatch, capsys):
 def test_multiple_parameters(monkeypatch, capsys):
     input = """
         class Main : Object {
-            run [:x :y :z |]
-        }
+            run [|]
+            a:b:c: [:x :y :z |]
+        ]
         """
     exp_output = """
         <?xml version="1.0" encoding="UTF-8"?>
         <program language="SOL25">
             <class name="Main" parent="Object">
                 <method selector="run">
+                    <block arity="0"/>
+                </method>
+                <method selector="a:b:c:">
                     <block arity="3">
                         <param order="1" name="x"/>
                         <param order="2" name="y"/>
