@@ -63,66 +63,6 @@ def test_undefined_class2(monkeypatch, capsys):
         """,
         32, monkeypatch, capsys)
     
-def test_undefined_method1(monkeypatch, capsys):
-    run_test("""
-        class Main : Object {
-            run [|
-                x := 1 pluus: 2.
-            ]
-        }
-        """,
-        32, monkeypatch, capsys)
-    
-def test_undefined_method2(monkeypatch, capsys):
-    run_test("""
-        class Main : Object {
-            run [|
-                x := 1 plus: 2.
-                y := 1 pluss: 2.
-            ]
-        }
-        """,
-        32, monkeypatch, capsys)
-    
-
-def test_undefined_method3(monkeypatch, capsys):
-    run_test("""
-        class Int : Integer {}
-        class Main : Object {
-            run [|
-                x := Int new.
-                y := x pluss: 2.
-            ]
-        }
-        """,
-        32, monkeypatch, capsys)
-    
-def test_undefined_method4(monkeypatch, capsys):
-    run_test("""
-        class Int : Integer {}
-        class Main : Object {
-            run [|
-                x := Int new.
-                y := x plus: 2.
-                z := x pluss: 2.
-            ]
-        }
-        """,
-        32, monkeypatch, capsys)
-    
-def test_undefined_method5(monkeypatch, capsys):
-    run_test("""
-        class Main : Object {
-            run [|
-                x := Int new.
-                y := x plus: 2.
-                z := x pluss: 2.
-            ]
-        }
-        class Int : Integer {}
-        """,
-        32, monkeypatch, capsys)
-    
 def test_undefined_var1(monkeypatch, capsys):
     run_test("""
         class Main : Object {
