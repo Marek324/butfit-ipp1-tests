@@ -17,8 +17,5 @@ pip install -r requirements.txt # install required packages
 ```
 git pull # in tests directory
 ```
-## TODO:
-1. Semantic analysis error tests.
-2. TODO: Valid code output tests.
 ## Notes:
 These tests expect your script to have `main()` function that runs all code
