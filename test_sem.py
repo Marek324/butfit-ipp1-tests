@@ -2,7 +2,7 @@ from tests.utils_tests import run_test
 
 def test_no_main1(monkeypatch, capsys):
     run_test("""
-        class Man : Object {
+        class Man1 : Object {
             run [|
                 x := 1.
             ]
@@ -13,7 +13,7 @@ def test_no_main1(monkeypatch, capsys):
 def test_no_main2(monkeypatch, capsys):
     run_test("""
         class MyInt : Integer {}
-        class Man : Object {
+        class Man2 : Object {
             run [|
                 x := 1.
             ]
@@ -24,7 +24,7 @@ def test_no_main2(monkeypatch, capsys):
 def test_no_run1(monkeypatch, capsys):
     run_test("""
         class Main : Object {
-            ru [|
+            ru1 [|
                 x := 1.
             ]
         }
@@ -34,7 +34,7 @@ def test_no_run1(monkeypatch, capsys):
 def test_no_run2(monkeypatch, capsys):
     run_test("""
         class Main : Object {
-            ru: [:b|
+            ru2: [:b|
                 x := b.
             ]
             r [|
@@ -47,7 +47,7 @@ def test_undefined_class1(monkeypatch, capsys):
     run_test("""
         class Main : Object {
             run [|
-                x := MyInt new.
+                x := MyInt1 new.
             ]
         }
         """,
@@ -57,7 +57,7 @@ def test_undefined_class2(monkeypatch, capsys):
     run_test("""
         class Main : Object {
             run [|
-                x := MyInt from: 2.
+                x := MyInt2 from: 2.
             ]
         }
         """,
@@ -121,9 +121,9 @@ def test_arity2(monkeypatch, capsys):
     run_test("""
         class Main : Object {
             run [|
-                x := 1 abc: 2.
+                x := 1 abc2: 2.
             ]
-            abc: [|]
+            abc2: [|]
         }
         """,
         33, monkeypatch, capsys)
@@ -132,9 +132,9 @@ def test_arity3(monkeypatch, capsys):
     run_test("""
         class Main : Object {
             run [|
-                x := 1 p: 2.
+                x := 1 p3: 2.
             ]
-            p: [:a :b|]
+            p3: [:a :b|]
         }
         """,
         33, monkeypatch, capsys)
@@ -143,9 +143,9 @@ def test_arity4(monkeypatch, capsys):
     run_test("""
         class Main : Object {
             run [|
-                x := 1 p: 2.
+                x := 1 p4: 2.
             ]
-            p:aaa: [:a :b :c|]
+            p4:aa4a: [:a :b :c|]
         }
         """,
         33, monkeypatch, capsys)
@@ -154,8 +154,17 @@ def test_collision_var1(monkeypatch, capsys):
     run_test("""
         class Main : Object {
             run [|]
-            a: [:x | x := 1.]
+            a1: [:x | x := 1.]
         }
         """,
         34, monkeypatch, capsys)
-    
+
+def test_collision_var2(monkeypatch, capsys):
+    run_test("""
+        class Main : Object {
+            run [|]
+            a2:b2: [:x :x | a := 1.]
+        }
+        """,
+        34, monkeypatch, capsys)
+        
