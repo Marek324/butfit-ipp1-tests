@@ -23,6 +23,8 @@ def run_test(input, expected_code):
         capture_output=True,
         text=True
     )
+
+    print(process.stdout)
     
     assert process.returncode == expected_code
     
@@ -55,6 +57,8 @@ def run_valid_test(input, expected_output):
         capture_output=True,
         text=True
     )
+
+    print(process.stdout)
 
     assert process.returncode == 0 
     
