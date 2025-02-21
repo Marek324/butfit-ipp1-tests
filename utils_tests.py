@@ -2,6 +2,7 @@ import pytest
 import sys
 import io
 import xml.etree.ElementTree as ET
+import subprocess
 
 from parse import main
 
@@ -49,17 +50,17 @@ def compare_xml_strings(xml_string1, xml_string2):
         return False  # Handle invalid XML
 
 def run_valid_test(input, expected_output, monkeypatch, capsys):
-    sys.argv = ['parse.py']
-    monkeypatch.setattr(sys, 'stdin', io.StringIO(input))
-    try:
-        ret = main()
-        assert ret is None
-    except SystemExit as e:
-        assert e.code == 0
+    process = subprocess.run(
+        ["python", "parse.py"],
+        input=input,        
+        capture_output=True,
+        text=True
+    )
+
+    assert process.returncode == 0 
     
-    captured_output = capsys.readouterr()
-    assert len(captured_output.err) == 0
-    assert len(captured_output.out) != 0
+    assert len(process.stderr) == 0
+    assert len(process.stdout) != 0
     
-    assert compare_xml_strings(captured_output.out, expected_output)
+    assert compare_xml_strings(process.stdout, expected_output)
     
