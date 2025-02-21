@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import subprocess
 
 def run_arg_test(args, expected_code):
-    args = ["python", "parse.py"] + args
+    args = ["python3.11", "parse.py"] + args
     process = subprocess.run(
         args,        
         capture_output=True,
@@ -18,7 +18,7 @@ def run_arg_test(args, expected_code):
 
 def run_test(input, expected_code):
     process = subprocess.run(
-        ["python", "parse.py"],
+        ["python3.11", "parse.py"],
         input=input,        
         capture_output=True,
         text=True
@@ -52,7 +52,7 @@ def compare_xml_strings(xml_string1, xml_string2):
 
 def run_valid_test(input, expected_output):
     process = subprocess.run(
-        ["python", "parse.py"],
+        ["python3.11", "parse.py"],
         input=input,        
         capture_output=True,
         text=True
