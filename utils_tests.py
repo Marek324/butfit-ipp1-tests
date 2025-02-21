@@ -41,7 +41,7 @@ def run_valid_test(input, expected_output, monkeypatch, capsys):
     assert len(captured_output.err) == 0
     assert len(captured_output.out) != 0
     
-    xml1 = ET.fromstring(captured_output.out)
-    xml2 = ET.fromstring(expected_output)
+    xml1 = ET.fromstring(captured_output.out.strip())
+    xml2 = ET.fromstring(expected_output.strip())
     assert ET.tostring(xml1) == ET.tostring(xml2)
     
