@@ -613,9 +613,7 @@ def test_assign_block():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <expr>
-                                    <block arity="0" />
-                                </expr>
+                                <block arity="0" />
                             </expr>
                         </assign>
                     </block>
