@@ -753,11 +753,13 @@ def test_example():
                                         <var name="self" />
                                     </expr>
                                     <arg order="1">
-                                        <send selector="vysl">
-                                            <expr>
-                                                <var name="self" />
-                                            </expr>
-                                        </send>
+                                        <expr>
+                                            <send selector="vysl">
+                                                <expr>
+                                                    <var name="self" />
+                                                </expr>
+                                            </send>
+                                        </expr>
                                     </arg>
                                 </send>
                             </expr>
