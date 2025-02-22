@@ -10,7 +10,7 @@ def test_minimal():
         <program language="SOL25">
             <class name="Main" parent="Object">
                 <method selector="run">
-                    <block arity="0"/>
+                    <block arity="0" />
                 </method>
             </class>
         </program>
@@ -27,7 +27,7 @@ def test_description1():
         <program language="SOL25" description="comment">
             <class name="Main" parent="Object">
                 <method selector="run">
-                    <block arity="0"/>
+                    <block arity="0" />
                 </method>
             </class>
         </program>
@@ -43,7 +43,7 @@ def test_description2():
     <program language="SOL25" description="comment&nbsp;newline">
         <class name="Main" parent="Object">
             <method selector="run">
-                <block arity="0"/>
+                <block arity="0" />
             </method>
         </class>
     </program>
@@ -59,7 +59,7 @@ def test_description3():
         <program language="SOL25" description="comment">
             <class name="Main" parent="Object">
                 <method selector="run">
-                    <block arity="0"/>
+                    <block arity="0" />
                 </method>
             </class>
         </program>
@@ -76,12 +76,12 @@ def test_multiple_classes():
         <program language="SOL25">
             <class name="Main" parent="Object">
                 <method selector="run">
-                    <block arity="0"/>
+                    <block arity="0" />
                 </method>
             </class>
             <class name="Main2" parent="Object">
                 <method selector="run">
-                    <block arity="0"/>
+                    <block arity="0" />
                 </method>
             </class>
         </program>
@@ -100,10 +100,10 @@ def test_multiple_methods():
         <program language="SOL25">
             <class name="Main" parent="Object">
                 <method selector="run">
-                    <block arity="0"/>
+                    <block arity="0" />
                 </method>
                 <method selector="run2">
-                    <block arity="0"/>
+                    <block arity="0" />
                 </method>
             </class>
         </program>
@@ -122,13 +122,13 @@ def test_multiple_parameters():
         <program language="SOL25">
             <class name="Main" parent="Object">
                 <method selector="run">
-                    <block arity="0"/>
+                    <block arity="0" />
                 </method>
                 <method selector="a:b:c:">
                     <block arity="3">
-                        <parameter order="1" name="x"/>
-                        <parameter order="2" name="y"/>
-                        <parameter order="3" name="z"/>
+                        <parameter order="1" name="x" />
+                        <parameter order="2" name="y" />
+                        <parameter order="3" name="z" />
                     </block>
                 </method>
             </class>
@@ -152,15 +152,15 @@ def test_multiple_assign():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="Integer" value="10"/>
+                                <literal class="Integer" value="10" />
                             </expr>
                         </assign>
                         <assign order="2">
-                            <var name="y"/>
+                            <var name="y" />
                             <expr>
-                                <literal class="Integer" value="5"/>
+                                <literal class="Integer" value="5" />
                             </expr>
                         </assign>
                     </block>
@@ -183,16 +183,16 @@ def test_inheritance():
     exp_output = """
         <?xml version="1.0" encoding="UTF-8"?>
         <program language="SOL25">
-            <class name="Str" parent="String"/>
+            <class name="Str" parent="String" />
             <class name="Main" parent="Object">
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <send selector="read">
+                                <send selector ="read">
                                     <expr>
-                                        <var name="x"/>
+                                        <literal class="class" value="Str2" />
                                     </expr>
                                 </send>
                             </expr>
@@ -200,7 +200,7 @@ def test_inheritance():
                     </block>
                 </method>
             </class>
-            <class name="Str2" parent="Str"/>   
+            <class name="Str2" parent="Str" />   
         </program>
         """
     run_valid_test(input, exp_output)
@@ -220,9 +220,9 @@ def test_literal_integer():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="Integer" value="10"/>
+                                <literal class="Integer" value="10" />
                             </expr>
                         </assign>
                     </block>
@@ -247,9 +247,9 @@ def test_literal_nil():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="Nil" value="nil"/>
+                                <literal class="Nil" value="nil" />
                             </expr>
                         </assign>
                     </block>
@@ -274,9 +274,9 @@ def test_literal_true():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="True" value="true"/>
+                                <literal class="True" value="true" />
                             </expr>
                         </assign>
                     </block>
@@ -301,9 +301,9 @@ def test_literal_false():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="False" value="false"/>
+                                <literal class="False" value="false" />
                             </expr>
                         </assign>
                     </block>
@@ -328,9 +328,9 @@ def test_literal_string():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="String" value="a10"/>
+                                <literal class="String" value="a10" />
                             </expr>
                         </assign>
                     </block>
@@ -355,9 +355,9 @@ def test_literal_string_lt():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="String" value="a &lt; 10"/>
+                                <literal class="String" value="a &lt; 10" />
                             </expr>
                         </assign>
                     </block>
@@ -382,9 +382,9 @@ def test_literal_string_gt():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="String" value="a &gt; 10"/>
+                                <literal class="String" value="a &gt; 10" />
                             </expr>
                         </assign>
                     </block>
@@ -409,9 +409,9 @@ def test_literal_string_amp():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="String" value="a &amp; 10"/>
+                                <literal class="String" value="a &amp; 10" />
                             </expr>
                         </assign>
                     </block>
@@ -436,9 +436,9 @@ def test_literal_string_apos():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="String" value="a &apos; 10"/>
+                                <literal class="String" value="a &apos; 10" />
                             </expr>
                         </assign>
                     </block>
@@ -463,9 +463,9 @@ def test_literal_string_quot():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="String" value="a &quot; 10"/>
+                                <literal class="String" value="a &quot; 10" />
                             </expr>
                         </assign>
                     </block>
@@ -490,9 +490,9 @@ def test_literal_string_esc_nl(): # may be escaped newline
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="String" value="a &nbsp; 10"/>
+                                <literal class="String" value="a &nbsp; 10" />
                             </expr>
                         </assign>
                     </block>
@@ -517,9 +517,9 @@ def test_literal_string_esc_backslash():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="x"/>
+                            <var name="x" />
                             <expr>
-                                <literal class="String" value="a \\\\ 10"/>
+                                <literal class="String" value="a \\\\ 10" />
                             </expr>
                         </assign>
                     </block>
@@ -613,11 +613,9 @@ def test_assign_block():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <send selector ="from:">
-                                    <expr>
-                                        <block arity="0"/>
-                                    </expr>
-                                </send>
+                                <expr>
+                                    <block arity="0" />
+                                </expr>
                             </expr>
                         </assign>
                     </block>
@@ -644,13 +642,9 @@ def test_assign_block_param():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <send selector ="from:">
-                                    <expr>
-                                        <block arity="1">
-                                            <parameter order="1" name="x"/>
-                                        </block>
-                                    </expr>
-                                </send>
+                                <block arity="1">
+                                    <parameter order="1" name="x" />
+                                </block>
                             </expr>
                         </assign>
                     </block>
@@ -676,15 +670,15 @@ def test_assign_var():
                 <method selector="run">
                     <block arity="0">
                         <assign order="1">
-                            <var name="y"/>
+                            <var name="y" />
                             <expr>
-                                <literal class="Integer" value="1"/>
+                                <literal class="Integer" value="1" />
                             </expr>
                         </assign>
                         <assign order="2">
-                            <var name="y"/>
+                            <var name="x" />
                             <expr>
-                                <var name="y"/>
+                                <var name="y" />
                             </expr>
                         </assign>
                     </block>
