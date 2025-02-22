@@ -814,9 +814,9 @@ def test_example():
 
                 <method selector="compute:and:and:">
                     <block arity="3">
-                        <parameter name="x" order="1" />
-                        <parameter name="y" order="2" />
-                        <parameter name="z" order="3" />
+                        <parameter order="1" name="x" />
+                        <parameter order="2" name="y" />
+                        <parameter order="3" name="z" />
                         <assign order="1">
                             <var name="a" />
                             <expr>
