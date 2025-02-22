@@ -66,6 +66,22 @@ def test_description3():
         """
     run_valid_test(input, exp_output)
 
+def test_description4():
+    input = """
+        class Main:Object{run[|]} "comment\n\nnewline"
+        """
+    exp_output = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <program language="SOL25" description="comment&nbsp;&nbsp;newline">
+            <class name="Main" parent="Object">
+                <method selector="run">
+                    <block arity="0" />
+                </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
+
 def test_multiple_classes():
     input = """
         class Main : Object {run [|]}
