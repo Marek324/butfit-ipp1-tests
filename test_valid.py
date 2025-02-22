@@ -126,9 +126,9 @@ def test_multiple_parameters():
                 </method>
                 <method selector="a:b:c:">
                     <block arity="3">
-                        <param order="1" name="x"/>
-                        <param order="2" name="y"/>
-                        <param order="3" name="z"/>
+                        <parameter order="1" name="x"/>
+                        <parameter order="2" name="y"/>
+                        <parameter order="3" name="z"/>
                     </block>
                 </method>
             </class>
