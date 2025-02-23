@@ -43,6 +43,7 @@ def test_no_run2():
         }
         """,
         31)
+    
 def test_undefined_class1():
     run_test("""
         class Main : Object {
@@ -60,6 +61,15 @@ def test_undefined_class2():
                 x := MyInt2 from: 2.
             ]
         }
+        """,
+        32)
+    
+def test_undefined_class3():
+    run_test("""
+        class Main : Object {
+            run [|]
+        }
+        class MyInt3 : Int4 {}
         """,
         32)
     
@@ -96,6 +106,43 @@ def test_undefined_var3():
         """,
         32)
     
+def test_undefined_var4():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := 1 plus: y.
+                y := 1.
+                z := y.
+            ]
+        }
+        """,
+        32)
+    
+def test_undefined_var5():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := 1 plus: 1 plus: y.
+                y := 1.
+                z := y.
+            ]
+        }
+        """,
+        32)
+    
+def test_undefined_var6():
+    run_test("""
+        class Main : Object {
+            run [|]
+            abc: [:a|
+                x := 1 plus: 1 plus: y.
+                y := 1.
+                z := y.
+            ]
+        }
+        """,
+        32)
+
 def test_run_param():
     run_test("""
         class Main : Object {
@@ -166,5 +213,14 @@ def test_collision_var2():
             a2:b2: [:x :x | a := 1.]
         }
         """,
-        34)
+        35)
         
+def test_class_redef1():
+    run_test("""
+        class Main : Object {
+            run [|]
+        }
+        class A:Integer{}
+        class A:Integer{}
+        """,
+        35)
