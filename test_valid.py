@@ -454,7 +454,7 @@ def test_literal_string_apos():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <literal class="String" value="a &apos; 10" />
+                                <literal class="String" value="a \\&apos; 10" />
                             </expr>
                         </assign>
                     </block>
