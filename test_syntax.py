@@ -211,3 +211,166 @@ def test_selector_space3():
         }
         """,
         22)
+    
+def test_reserved_id_asgn1():
+    run_test("""
+        class Main : Object {
+            run [|
+                self := 1.
+            ]
+        }
+        """,
+        22)
+    
+def test_reserved_id_asgn2():
+    run_test("""
+        class Main : Object {
+            run [|
+                super := 1.
+            ]
+        }
+        """,
+        22)
+
+def test_reserved_id_asgn3():
+    run_test("""
+        class Main : Object {
+            run [|
+                true := 1.
+            ]
+        }
+        """,
+        22)
+    
+def test_reserved_id_asgn4():
+    run_test("""
+        class Main : Object {
+            run [|
+                false := 1.
+            ]
+        }
+        """,
+        22)
+    
+def test_reserved_id_asgn5():
+    run_test("""
+        class Main : Object {
+            run [|
+                nil := 1.
+            ]
+        }
+        """,
+        22)
+    
+def test_reserved_id_asgn6():
+    run_test("""
+        class Main : Object {
+            run [|
+                class := 1.
+            ]
+        }
+        """,
+        22)
+
+def test_reserved_id_param1():
+    run_test("""
+        class Main : Object {
+            run [|]
+            a: [:self|]
+        }
+        """,
+        22)
+    
+def test_reserved_id_param2():
+    run_test("""
+        class Main : Object {
+            run [|]
+            a: [:super|]
+        }
+        """,
+        22)
+    
+def test_reserved_id_param3():
+    run_test("""
+        class Main : Object {
+            run [|]
+            a: [:true|]
+        }
+        """,
+        22)
+    
+def test_reserved_id_param4():
+    run_test("""
+        class Main : Object {
+            run [|]
+            a: [:false|]
+        }
+        """,
+        22)
+    
+def test_reserved_id_param5():
+    run_test("""
+        class Main : Object {
+            run [|]
+            a: [:nil|]
+        }
+        """,
+        22)
+    
+def test_reserved_id_param6():
+    run_test("""
+        class Main : Object {
+            run [|]
+            a: [:class|]
+        }
+        """,
+        22)
+
+def test_reserved_id_sel1():
+    run_test("""
+        class Main : Object {
+            run [|x := 1 self.]
+        }
+        """,
+        22)
+
+def test_reserved_id_sel2():
+    run_test("""
+        class Main : Object {
+            run [|x := 1 super.]
+        }
+        """,
+        22)
+    
+def test_reserved_id_sel3():
+    run_test("""
+        class Main : Object {
+            run [|x := 1 true.]
+        }
+        """,
+        22)
+    
+def test_reserved_id_sel4():
+    run_test("""
+        class Main : Object {
+            run [|x := 1 false.]
+        }
+        """,
+        22)
+    
+def test_reserved_id_sel5():
+    run_test("""
+        class Main : Object {
+            run [|x := 1 nil.]
+        }
+        """,
+        22)
+    
+def test_reserved_id_sel6():
+    run_test("""
+        class Main : Object {
+            run [|x := 1 class.]
+        }
+        """,
+        22)
+    
