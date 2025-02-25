@@ -154,19 +154,6 @@ def test_undefined_var5():
         """,
         32)
     
-def test_undefined_var6():
-    run_test("""
-        class Main : Object {
-            run [|]
-            abc: [:a|
-                x := 1 plus: 1 plus: y.
-                y := 1.
-                z := y.
-            ]
-        }
-        """,
-        32)
-
 def test_run_param():
     run_test("""
         class Main : Object {

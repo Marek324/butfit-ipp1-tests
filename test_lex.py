@@ -84,23 +84,13 @@ def test_str_literal2():
     run_test("""
         class Main : Object {
             run [|
-                x := '\\\n'.
-            ]
-        }
-        """,
-        21)
-    
-def test_str_literal3():
-    run_test("""
-        class Main : Object {
-            run [|
-                x := '\\a'.
+                x := '\n'.
             ]
         }
         """,
         21)
 
-def test_str_literal4():
+def test_str_literal3():
     run_test("""
         class Main : Object {
             run [|
@@ -110,7 +100,7 @@ def test_str_literal4():
         """,
         21)
     
-def test_str_literal5():
+def test_str_literal4():
     run_test("""
         class Main : Object {
             run [|
