@@ -21,6 +21,11 @@ def test_no_main2():
         """,
         31)
     
+def test_no_main3():
+    run_test("""
+        """,
+        31)
+    
 def test_no_run1():
     run_test("""
         class Main : Object {
@@ -41,6 +46,25 @@ def test_no_run2():
                 x := 1.
             ]
         }
+        """,
+        31)
+    
+def test_no_run3():
+    run_test("""
+        class Main : Object {
+            run: [:b|
+                x := b.
+            ]
+            r [|
+                x := 1.
+            ]
+        }
+        """,
+        31)
+
+def test_no_run4():
+    run_test("""
+        class Main : Object {}
         """,
         31)
     

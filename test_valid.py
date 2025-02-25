@@ -130,7 +130,7 @@ def test_multiple_parameters():
     input = """
         class Main : Object {
             run [|]
-            a:b:c: [:x :y :z |]
+            self:from:nil: [:x :y :z |]
         }
         """
     exp_output = """
@@ -140,7 +140,7 @@ def test_multiple_parameters():
                 <method selector="run">
                     <block arity="0" />
                 </method>
-                <method selector="a:b:c:">
+                <method selector="self:from:nil:">
                     <block arity="3">
                         <parameter order="1" name="x" />
                         <parameter order="2" name="y" />
