@@ -19,4 +19,4 @@ git pull # in tests directory
 ```
 ## Notes:
 Tag or DM me if you see any issues. (@marek3k)
-If you'd like to contribute tests, create a pull request.
+If you'd like to contribute to tests, create a pull request.
