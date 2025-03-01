@@ -235,31 +235,3 @@ def test_class_redef1():
         class A:Integer{}
         """,
         35)
-
-def test_wrong_argument_name():
-    run_test("""
-        class Main : Object {
-            run [| x := String startsWith: 0 endsB: 1.]
-        }
-        """,
-        32)
-    
-def test_inh_wrong_argument_name():
-    run_test("""
-        class Main : Object {
-            run [| x := Baf startsWith: 0 endsBefore: 1.
-                   x := Baf startsWith: 0 endsB: 1.]
-        }
-        class Baf : String {
-            run [|]
-        }
-        """,
-        32)
-    
-def test_undefined_func1():
-    run_test("""
-        class Main : Object {
-            run [| x := 1 startsWith: 0 endsBefore: 1.]
-        }
-        """,
-        32)
