@@ -44,6 +44,14 @@ def str_to_xml_s(x):
             "".join(re.findall(r'<[^<>]*>', x.strip()))
             )))))))).decode('utf-8')
 
+## Sort children based on their tags and attributes.
+## Order can be different in equivalent xml.
+## Children need to get in line 
+def normalize_children(children):
+    children[:] = sorted(children, key=lambda e: (e.tag, e.attrib.items()))
+
+    return children
+
 def compare_xml_elements(elem1, elem2):
     if elem1.tag != elem2.tag:
         return False
@@ -51,9 +59,14 @@ def compare_xml_elements(elem1, elem2):
         return False
     if len(elem1) != len(elem2):
         return False
-    for child1, child2 in zip(elem1, elem2):
+    
+    children1 = normalize_children(list(elem1))
+    children2 = normalize_children(list(elem1))
+
+    for child1, child2 in zip(children1, children2):
         if not compare_xml_elements(child1, child2):
             return False
+        
     return True
 
 def compare_xml_strings(xml_string1, xml_string2):
