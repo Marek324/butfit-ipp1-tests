@@ -110,6 +110,17 @@ def test_str_literal4():
         """,
         21)
 
+def test_str_literal5():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := 'Nesprávny escape: \\x
+                '.
+            ]
+        }
+        """,
+        21)
+
 def test_selector1():
     run_test("""
         class Main : Object {

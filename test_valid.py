@@ -265,7 +265,7 @@ def test_literal_nil():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <literal class="Nil" value="nil" />
+                                <var name="nil" />
                             </expr>
                         </assign>
                     </block>
@@ -292,7 +292,7 @@ def test_literal_true():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <literal class="True" value="true" />
+                                <var name="true" />
                             </expr>
                         </assign>
                     </block>
@@ -319,7 +319,7 @@ def test_literal_false():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <literal class="False" value="false" />
+                                <var name="false"/>
                             </expr>
                         </assign>
                     </block>
@@ -540,6 +540,77 @@ def test_literal_string_esc_backslash():
                         </assign>
                     </block>
                 </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
+
+def test_nested_expr():
+    input = """
+        class Main : Object {
+            run [| 
+                x := (((1))).
+            ]
+        }
+        """
+    
+    exp_output = """
+    <?xml version='1.0' encoding='UTF-8'?>
+    <program language="SOL25">
+        <class name="Main" parent="Object">
+            <method selector="run">
+                <block arity="0">
+                    <assign order="1">
+                        <var name="x" />
+                        <expr>
+                            <literal value="1" class="Integer" />
+                        </expr>
+                    </assign>
+                </block>
+            </method>
+        </class>
+    </program>
+    """
+    run_valid_test(input, exp_output)
+
+def test_inheritance_method_call():
+    input = """
+        class Main : Object {
+            run [| x := Baf startsWith: 0 endsBefore: 1.]
+        }
+        class Baf : String {
+        }
+        """
+    exp_output = """
+        <?xml version='1.0' encoding='UTF-8'?>
+        <program language="SOL25">
+            <class name="Main" parent="Object">
+                <method selector="run">
+                    <block arity="0">
+                        <assign order="1">
+                            <var name="x" />
+                            <expr>
+                                <send selector="startsWith:endsBefore:">
+                                    <arg order="1">
+                                        <expr>
+                                            <literal value="0" class="Integer" />
+                                        </expr>
+                                    </arg>
+                                    <arg order="2">
+                                        <expr>
+                                            <literal value="1" class="Integer" />
+                                        </expr>
+                                    </arg>
+                                    <expr>
+                                        <literal value="Baf" class="class" />
+                                    </expr>
+                                </send>
+                            </expr>
+                        </assign>
+                    </block>
+                </method>
+            </class>
+            <class name="Baf" parent="String">
             </class>
         </program>
         """

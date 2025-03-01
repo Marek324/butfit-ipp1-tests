@@ -48,7 +48,7 @@ def str_to_xml_s(x):
 ## Order can be different in equivalent xml.
 ## Children need to get in line 
 def normalize_children(children):
-    children[:] = sorted(children, key=lambda e: (e.tag, e.attrib.items()))
+    children = sorted(children, key=lambda e: (e.tag, list(e.attrib.items())))
 
     return children
 
@@ -61,7 +61,7 @@ def compare_xml_elements(elem1, elem2):
         return False
     
     children1 = normalize_children(list(elem1))
-    children2 = normalize_children(list(elem1))
+    children2 = normalize_children(list(elem2))
 
     for child1, child2 in zip(children1, children2):
         if not compare_xml_elements(child1, child2):
