@@ -265,7 +265,7 @@ def test_literal_nil():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <var name="nil" />
+                                <literal class="Nil" value="nil" />
                             </expr>
                         </assign>
                     </block>
@@ -292,7 +292,7 @@ def test_literal_true():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <var name="true" />
+                                <literal class="True" value="true" />
                             </expr>
                         </assign>
                     </block>
@@ -319,7 +319,7 @@ def test_literal_false():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <var name="false"/>
+                                <literal class="False" value="false" />
                             </expr>
                         </assign>
                     </block>
