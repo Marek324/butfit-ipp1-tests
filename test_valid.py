@@ -206,7 +206,7 @@ def test_inheritance():
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <send selector ="read">
+                                <send selector="read">
                                     <expr>
                                         <literal class="class" value="Str2" />
                                     </expr>
@@ -491,7 +491,7 @@ def test_literal_string_quot():
         """
     run_valid_test(input, exp_output)
 
-def test_literal_string_esc_nl(): # may be escaped newline
+def test_literal_string_esc_nl():
     input = """
         class Main : Object {
             run [| 
@@ -508,7 +508,7 @@ def test_literal_string_esc_nl(): # may be escaped newline
                         <assign order="1">
                             <var name="x" />
                             <expr>
-                                <literal class="String" value="a &nbsp; 10" />
+                                <literal class="String" value="a \\n 10" />
                             </expr>
                         </assign>
                     </block>
