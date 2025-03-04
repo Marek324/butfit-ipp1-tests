@@ -40,7 +40,7 @@ def test_description2():
         """
     exp_output = """
     <?xml version="1.0" encoding="UTF-8"?>
-    <program language="SOL25" description="comment&nbsp;newline">
+    <program language="SOL25" description="comment&#10;newline">
         <class name="Main" parent="Object">
             <method selector="run">
                 <block arity="0" />
@@ -72,7 +72,7 @@ def test_description4():
         """
     exp_output = """
         <?xml version="1.0" encoding="UTF-8"?>
-        <program language="SOL25" description="comment&nbsp;&nbsp;newline">
+        <program language="SOL25" description="comment&#10;&#10;newline">
             <class name="Main" parent="Object">
                 <method selector="run">
                     <block arity="0" />
