@@ -573,49 +573,6 @@ def test_nested_expr():
     """
     run_valid_test(input, exp_output)
 
-def test_inheritance_method_call():
-    input = """
-        class Main : Object {
-            run [| x := Baf startsWith: 0 endsBefore: 1.]
-        }
-        class Baf : String {
-        }
-        """
-    exp_output = """
-        <?xml version='1.0' encoding='UTF-8'?>
-        <program language="SOL25">
-            <class name="Main" parent="Object">
-                <method selector="run">
-                    <block arity="0">
-                        <assign order="1">
-                            <var name="x" />
-                            <expr>
-                                <send selector="startsWith:endsBefore:">
-                                    <arg order="1">
-                                        <expr>
-                                            <literal value="0" class="Integer" />
-                                        </expr>
-                                    </arg>
-                                    <arg order="2">
-                                        <expr>
-                                            <literal value="1" class="Integer" />
-                                        </expr>
-                                    </arg>
-                                    <expr>
-                                        <literal value="Baf" class="class" />
-                                    </expr>
-                                </send>
-                            </expr>
-                        </assign>
-                    </block>
-                </method>
-            </class>
-            <class name="Baf" parent="String">
-            </class>
-        </program>
-        """
-    run_valid_test(input, exp_output)
-
 def test_literal_class_new():
     input = """
         class Main : Object {

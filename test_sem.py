@@ -154,6 +154,36 @@ def test_undefined_var5():
         """,
         32)
     
+def test_undefined_class_method1():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := Integer ne.
+            ]
+        }
+        """,
+        32)
+    
+def test_undefined_class_method2():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := String b.
+            ]
+        }
+        """,
+        32)
+    
+def test_undefined_class_method3():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := Integer read.
+            ]
+        }
+        """,
+        32)
+
 def test_run_param():
     run_test("""
         class Main : Object {
