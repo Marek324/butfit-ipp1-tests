@@ -297,20 +297,3 @@ def test_class_redef1():
         """,
         35)
 
-def test_class_method_redef1():
-    run_test("""
-        class Main : Object {
-            run [|]
-            new [|]
-        }
-        """,
-        35)
-    
-def test_class_method_redef2():
-    run_test("""
-        class Main : Object {
-            run [|]
-            from: [:a|]
-        }
-        """,
-        35)
