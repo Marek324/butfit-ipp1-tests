@@ -378,7 +378,7 @@ def test_reserved_id_method1():
     run_test("""
         class Main : Object {
             run [|]
-            self []
+            self [|]
         }
         """,
         22)
@@ -387,7 +387,7 @@ def test_reserved_id_method2():
     run_test("""
         class Main : Object {
             run [|]
-            super []
+            super [|]
         }
         """,
         22)
@@ -396,7 +396,7 @@ def test_reserved_id_method3():
     run_test("""
         class Main : Object {
             run [|]
-            false []
+            false [|]
         }
         """,
         22)
@@ -405,7 +405,7 @@ def test_reserved_id_method4():
     run_test("""
         class Main : Object {
             run [|]
-            nil []
+            nil [|]
         }
         """,
         22)
@@ -414,7 +414,7 @@ def test_reserved_id_method5():
     run_test("""
         class Main : Object {
             run [|]
-            false []
+            false [|]
         }
         """,
         22)
@@ -423,7 +423,7 @@ def test_reserved_id_method6():
     run_test("""
         class Main : Object {
             run [|]
-            class []
+            class [|]
         }
         """,
         22)
