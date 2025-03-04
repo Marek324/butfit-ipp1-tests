@@ -198,7 +198,7 @@ def test_undefined_class_method4():
     run_test("""
         class Main : Object {
             run [|
-                x := Integer from: ((Integer from:1) be: 2).
+                x := Integer from: (Integer from:1 be: 2).
             ]
         }
         """,
