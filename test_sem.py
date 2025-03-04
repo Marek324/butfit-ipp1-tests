@@ -183,6 +183,27 @@ def test_undefined_class_method3():
         }
         """,
         32)
+    
+def test_undefined_class_method4():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := Integer ne: (Integer from:1) be: 2.
+            ]
+        }
+        """,
+        32)
+
+def test_undefined_class_method4():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := Integer from: ((Integer from:1) be: 2).
+            ]
+        }
+        """,
+        32)
+
 
 def test_run_param():
     run_test("""
