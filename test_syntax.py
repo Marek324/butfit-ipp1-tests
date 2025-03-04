@@ -26,7 +26,7 @@ def test_invalid_class_id2():
     
 def test_unterminated_block():
     run_test("""
-        class Main Object { 
+        class Main : Object { 
             run [ | x := 5.
         }
         """,
@@ -34,7 +34,7 @@ def test_unterminated_block():
     
 def test_block_missing_pipe():
     run_test("""
-        class Main Object { 
+        class Main : Object { 
             run [ x := 5. ]
         }
         """,
@@ -42,7 +42,7 @@ def test_block_missing_pipe():
     
 def test_missing_dot():
     run_test("""
-        class Main Object { 
+        class Main : Object { 
             run [ | x := 5 ]
         }
         """,
@@ -50,7 +50,7 @@ def test_missing_dot():
     
 def test_unterminated_class():
     run_test("""
-        class Main Object { 
+        class Main : Object { 
             run [ | x := 5. ]
         """,
         22)
@@ -79,7 +79,7 @@ def test_missing_class_body():
 
 def test_invalid_parameter1():
     run_test("""
-        class Main Object { 
+        class Main : Object { 
             run [ x := 5. | ]
         }
         """,
@@ -87,7 +87,7 @@ def test_invalid_parameter1():
     
 def test_invalid_parameter2():
     run_test("""
-        class Main Object { 
+        class Main : Object { 
             run [ x := 5. | y ]
         }
         """,
