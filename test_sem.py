@@ -194,7 +194,7 @@ def test_undefined_class_method4():
         """,
         32)
 
-def test_undefined_class_method4():
+def test_undefined_class_method5():
     run_test("""
         class Main : Object {
             run [|
@@ -203,7 +203,17 @@ def test_undefined_class_method4():
         }
         """,
         32)
-
+    
+def test_undefined_class_method6():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := FakeString read.
+            ]
+        }
+        class FakeString : Integer {}
+        """,
+        32)
 
 def test_run_param():
     run_test("""
