@@ -143,7 +143,7 @@ def test_selector1():
 def test_selector2():
     run_test("""
         class Main : Object { 
-            I_run [ | x := 5.  ]
+            Irun [ | x := 5.  ]
         }
         """,
         22)
