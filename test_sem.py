@@ -297,3 +297,33 @@ def test_class_redef1():
         """,
         35)
 
+def test_circular_inheritance1():
+    run_test("""
+        class A : B {}
+        class B : A {}
+        class Main : Object {
+            run [|]
+        }
+        """,
+        35)
+
+def test_circular_inheritance2():
+    run_test("""
+        class A : B {}
+        class Main : Object {
+            run [|]
+        }
+        class B : A {}
+        """,
+        35)
+    
+def test_circular_inheritance3():
+    run_test("""
+        class A : B {}
+        class B : C {}
+        class C : A {}
+        class Main : Object {
+            run [|]
+        }
+        """,
+        35)
