@@ -9,9 +9,10 @@ git clone git@github.com:Marek324/IPP-1-tests.git tests
 ```
 ## Setup:
 ```
-python -m venv .venv # create virtual environment
+# in root dir
+python -m venv .venv # create virtual environment if you don't have one yet
 source .venv/bin/activate
-pip install -r requirements.txt # install required packages
+pip install -r tests/requirements.txt # install required packages
 ```
 ## Update:
 ```
