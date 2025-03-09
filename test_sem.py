@@ -344,3 +344,15 @@ def test_circular_inheritance5():
         }
         """,
         35)
+
+# while loop up dont get to first object
+def test_circular_inheritance6():
+    run_test("""
+        class A : B {}
+        class B : C {}
+        class C : B {}
+         class Main : Object {
+            run [|]
+        }
+        """,
+        35)
