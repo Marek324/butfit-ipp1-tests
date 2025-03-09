@@ -327,3 +327,20 @@ def test_circular_inheritance3():
         }
         """,
         35)
+
+def test_circular_inheritance4():
+    run_test("""
+            class A : A {}
+            class Main : Object {
+                run [|]
+            }    
+        """,
+        35)
+
+def test_circular_inheritance5():
+    run_test("""
+        class Main : Object {
+            run [| x := Main new. ]
+        }
+        """,
+        35)
