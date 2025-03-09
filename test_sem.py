@@ -356,3 +356,19 @@ def test_circular_inheritance6():
         }
         """,
         35)
+
+#super should ot find b, because it call method on parent
+def test_super1():
+    run_test("""
+        class Main : Object {
+            run [|]
+        }
+        class A:Object{
+            a[|]
+        }
+        class F:A{
+            f[|x := super b.]
+            b[|]
+        }
+        """,
+        32)
