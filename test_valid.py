@@ -783,6 +783,114 @@ def test_assign_var():
         """
     run_valid_test(input, exp_output)
 
+
+def test_block_usage():
+    input = """
+        class Main : Object {
+            run [|
+                "a = instance 14"
+                a := self foo: 4.
+                "b = instance Block"
+                b := [ :x | _ := 42. ].
+                "c = instance 42"
+                c := b value: 16.
+                "d = instance 'ahoj' - print vrací self, viz Vestavěné třídy"
+                d := 'ahoj' print.
+            ]
+            foo: [ :x |
+            "s proměnnou 'u' se nijak dál nepracuje , ale výsledek zaslání
+            zprávy 'plus:' bude vrácen jako výsledek volání metody 'foo'"
+                u := x plus: 10.
+            ]
+        }
+    """
+    exp_output = """
+    <?xml version="1.0" encoding="UTF-8"?>
+    <program language="SOL25" description="a = instance 14">
+        <class name="Main" parent="Object">
+            <method selector="run">
+                <block arity="0">
+                    <assign order="1">
+                        <var name="a"/>
+                        <expr>
+                            <send selector="foo:">
+                                <expr>
+                                    <var name="self"/>
+                                </expr>
+                                <arg order="1">
+                                    <expr>
+                                        <literal class="Integer" value="4"/>
+                                    </expr>
+                                </arg>
+                            </send>
+                        </expr>
+                    </assign>
+                    <assign order="2">
+                        <var name="b"/>
+                        <expr>
+                            <block arity="1">
+                                <parameter name="x" order="1"/>
+                                <assign order="1">
+                                    <var name="_"/>
+                                    <expr>
+                                        <literal class="Integer" value="42"/>
+                                    </expr>
+                                </assign>
+                            </block>
+                        </expr>
+                    </assign>
+                    <assign order="3">
+                        <var name="c"/>
+                        <expr>
+                            <send selector="value:">
+                                <expr>
+                                    <var name="b"/>
+                                </expr>
+                                <arg order="1">
+                                    <expr>
+                                        <literal class="Integer" value="16"/>
+                                    </expr>
+                                </arg>
+                            </send>
+                        </expr>
+                    </assign>
+                    <assign order="4">
+                        <var name="d"/>
+                        <expr>
+                            <send selector="print">
+                                <expr>
+                                    <literal class="String" value="ahoj"/>
+                                </expr>
+                            </send>
+                        </expr>
+                    </assign>
+                </block>
+            </method>
+            <method selector="foo:">
+                <block arity="1">
+                    <parameter name="x" order="1"/>
+                    <assign order="1">
+                        <var name="u"/>
+                        <expr>
+                            <send selector="plus:">
+                                <expr>
+                                    <var name="x"/>
+                                </expr>
+                                <arg order="1">
+                                    <expr>
+                                        <literal class="Integer" value="10"/>
+                                    </expr>
+                                </arg>
+                            </send>
+                        </expr>
+                    </assign>
+                </block>
+            </method>
+        </class>
+    </program>
+    """
+    run_valid_test(input, exp_output)
+
 def test_expr1():
     input = """
         class Main : Object {
