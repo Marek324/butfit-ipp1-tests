@@ -1,7 +1,7 @@
 from tests.utils_tests import run_valid_test
 
 
-def test_minimal():
+def test_minimal1():
     input = """
         class Main:Object{run[|]}
         """
@@ -17,6 +17,59 @@ def test_minimal():
         """
     run_valid_test(input, exp_output)
 
+def test_minimal2():
+    input = """
+        class Main:Integer{run[|]}
+        """
+    exp_output = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <program language="SOL25">
+            <class name="Main" parent="Integer">
+                <method selector="run">
+                    <block arity="0" />
+                </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
+
+def test_almost_minimal1():
+    input = """
+        class A:Object{}
+        class Main:A{run[|]}
+        """
+    exp_output = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <program language="SOL25">
+            <class name="A" parent="Object" />
+            <class name="Main" parent="A">
+                <method selector="run">
+                    <block arity="0" />
+                </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
+
+def test_almost_minimal2():
+    input = """
+        class A:Object{}
+        class B:A{}
+        class Main:B{run[|]}
+        """
+    exp_output = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <program language="SOL25">
+            <class name="A" parent="Object" />
+            <class name="B" parent="A" />
+            <class name="Main" parent="B">
+                <method selector="run">
+                    <block arity="0" />
+                </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
 
 def test_description1():
     input = """
@@ -730,6 +783,170 @@ def test_assign_var():
         """
     run_valid_test(input, exp_output)
 
+def test_expr1():
+    input = """
+        class Main : Object {
+            run [| 
+                x := (((Integer from: ((Integer new))))).
+            ]
+        }
+        """
+    exp_output = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <program language="SOL25">
+            <class name="Main" parent="Object">
+                <method selector="run">
+                    <block arity="0">
+                        <assign order="1">
+                            <var name="x" />
+                            <expr>
+                                <send selector="from:">
+                                    <expr>
+                                        <literal class="class" value="Integer" />
+                                    </expr>
+                                    <arg order="1">
+                                        <expr>
+                                            <send selector="new">
+                                                <expr>
+                                                    <literal class="class" value="Integer" />
+                                                </expr>
+                                            </send>
+                                        </expr>
+                                    </arg>
+                                </send>
+                            </expr>
+                        </assign>
+                    </block>
+                </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
+
+def test_expr2():
+    input = """
+        class Main : Object {
+            run [| 
+                x := (((Integer from: ((Integer new))) plus: (Integer new))).
+            ]
+        }
+        """
+    exp_output = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <program language="SOL25">
+            <class name="Main" parent="Object">
+                <method selector="run">
+                    <block arity="0">
+                        <assign order="1">
+                            <var name="x" />
+                            <expr>
+                                <send selector="plus:">
+                                    <expr>
+                                        <send selector="from:">
+                                            <expr>
+                                                <literal class="class" value="Integer" />
+                                            </expr>
+                                            <arg order="1">
+                                                <expr>
+                                                    <send selector="new">
+                                                        <expr>
+                                                            <literal class="class" value="Integer" />
+                                                        </expr>
+                                                    </send>
+                                                </expr>
+                                            </arg>
+                                        </send>
+                                    </expr>
+                                    <arg order="1">
+                                        <expr>
+                                            <send selector="new">
+                                                <expr>
+                                                    <literal class="class" value="Integer" />
+                                                </expr>
+                                            </send>
+                                        </expr>
+                                    </arg>
+                                </send>
+                            </expr>
+                        </assign>
+                    </block>
+                </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
+
+def test_expr3():
+    input = """
+        class Main : Object {
+            run [| 
+                x := [|
+                    x := 2.
+                ].
+            ]
+        }
+        """
+    exp_output = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <program language="SOL25">
+            <class name="Main" parent="Object">
+                <method selector="run">
+                    <block arity="0">
+                        <assign order="1">
+                            <var name="x" />
+                            <expr>
+                                <block arity="0">
+                                    <assign order="1">
+                                        <var name="x" />
+                                        <expr>
+                                            <literal class="Integer" value="2" />
+                                        </expr>
+                                    </assign>
+                                </block>
+                            </expr>
+                        </assign>
+                    </block>
+                </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
+
+def test_expr4():
+    input = """
+        class Main : Object {
+            run [| 
+                x := ([|
+                    x := (2).
+                ]).
+            ]
+        }
+        """
+    exp_output = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <program language="SOL25">
+            <class name="Main" parent="Object">
+                <method selector="run">
+                    <block arity="0">
+                        <assign order="1">
+                            <var name="x" />
+                            <expr>
+                                <block arity="0">
+                                    <assign order="1">
+                                        <var name="x" />
+                                        <expr>
+                                            <literal class="Integer" value="2" />
+                                        </expr>
+                                    </assign>
+                                </block>
+                            </expr>
+                        </assign>
+                    </block>
+                </method>
+            </class>
+        </program>
+        """
+    run_valid_test(input, exp_output)
 
 def test_example():
     input = """
