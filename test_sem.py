@@ -306,11 +306,11 @@ def test_method_redef1():
                 z := y.
             ]
 
-	    run [|
+            run [|
                 x := 1.
                 y := 1.
                 w := y.
-	    ]
+            ]
         }
     """, 35)
 
@@ -323,22 +323,8 @@ def test_method_redef2():
                 z := y.
             ]
 
-            pepa:jak:se: [|]
-            pepa:jak:se: [|]
-        }
-    """, 35)
-
-def test_method_redef3():
-    run_test("""
-        class Main : Object {
-            run [|
-                x := 1.
-                y := 1.
-                z := y.
-            ]
-
-            pepa: [|]
-            pepa: [|]
+            pepa:jak:se: [:a:b:c|]
+            pepa:jak:se: [:a:b:c|]
         }
     """, 35)
 
