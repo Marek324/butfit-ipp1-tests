@@ -297,6 +297,37 @@ def test_class_redef1():
         """,
         35)
 
+def test_method_redef1():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := 1.
+                y := 1.
+                z := y.
+            ]
+
+            run [|
+                x := 1.
+                y := 1.
+                w := y.
+            ]
+        }
+    """, 35)
+
+def test_method_redef2():
+    run_test("""
+        class Main : Object {
+            run [|
+                x := 1.
+                y := 1.
+                z := y.
+            ]
+
+            pepa:jak:se: [:a:b:c|]
+            pepa:jak:se: [:a:b:c|]
+        }
+    """, 35)
+
 def test_circular_inheritance1():
     run_test("""
         class A : B {}
