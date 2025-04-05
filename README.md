@@ -5,7 +5,7 @@ pytest
 ```
 ## Download:
 ```
-git clone git@github.com:Marek324/IPP-1-tests.git tests
+git clone git@github.com:Marek324/ipp1-tests.git tests
 ```
 ## Setup:
 ```
